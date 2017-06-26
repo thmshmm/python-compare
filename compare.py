@@ -2,7 +2,7 @@ def compare(obj1, obj2):
     if obj1 is None or obj2 is None:
         return False
 
-    if type(obj1) != type(obj2):
+    if obj1.__class__ != obj2.__class__:
         return False
 
     if isinstance(obj1, dict):
@@ -26,7 +26,7 @@ def compare(obj1, obj2):
             match = False
 
             for item2 in obj2:
-                if type(item1) == type(item2):
+                if item1.__class__ == item2.__class__:
                     match = compare(item1, item2)
                     if match:
                         break
